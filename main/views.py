@@ -5,3 +5,11 @@ from django.http import HttpResponse
 def index(request):
     # レスポンスを生成する
     return HttpResponse('こんにちは、世界！')
+
+def temp(request):
+  # ビュー変数を準備
+  context = {
+    'msg': 'こんにちは、世界！'
+  }
+  # テンプレートを呼び出す
+  return render(request, 'main/temp.html', context)
