@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book
+import random
 
 # リクエスト情報を受け取る
 def index(request):
@@ -20,4 +21,10 @@ def list(request):
     books = Book.objects.all()
     return render(request, 'main/list.html', {
         'books': books
+    })
+
+def iftag(request):
+    return render(request, 'main/iftag.html', {
+      # 0~100の乱数を生成
+      'random': random.randint(0, 100)
     })
