@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book
 import random
+import datetime
 
 # リクエスト情報を受け取る
 def index(request):
@@ -56,3 +57,10 @@ def master(request):
   return render(request, 'main/master.html', {
     'msg': 'こんにちは、世界！',
   })
+
+def include(request):
+    # ビュー変数name/currentを準備
+    return render(request, 'main/include.html', {
+      'name': '鈴木',
+      'current': datetime.datetime.now(),
+    })
