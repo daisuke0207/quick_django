@@ -45,3 +45,8 @@ def forloop(request):
     return render(request, 'main/forloop.html', {
       'weeks': ['月', '火', '水', '木', '金', '土', '日']
     })
+
+def forempty(request):
+    return render(request, 'main/forempty.html', {
+      # 'members': ['鈴木三郎', '佐藤陽子', '山田二郎']
+    })
