@@ -50,3 +50,9 @@ def forempty(request):
     return render(request, 'main/forempty.html', {
       # 'members': ['鈴木三郎', '佐藤陽子', '山田二郎']
     })
+
+def master(request):
+  # 呼び出すのは子テンプレート
+  return render(request, 'main/master.html', {
+    'msg': 'こんにちは、世界！',
+  })

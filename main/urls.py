@@ -12,4 +12,5 @@ urlpatterns = [
   path('firstof', views.firstof, name='firstof'),
   path('forloop', views.forloop, name='forloop'),
   path('forempty', views.forempty, name='forempty'),
+  path('master', views.master, name='master'),
 ]
