@@ -40,3 +40,8 @@ def firstof(request):
       'b': 'こんにちは！',
       # 'c': 'こんばんは！'
     })
+
+def forloop(request):
+    return render(request, 'main/forloop.html', {
+      'weeks': ['月', '火', '水', '木', '金', '土', '日']
+    })

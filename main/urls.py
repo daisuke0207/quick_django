@@ -10,4 +10,5 @@ urlpatterns = [
   path('iftag', views.iftag, name='iftag'),
   path('yesno', views.yesno, name='yesno'),
   path('firstof', views.firstof, name='firstof'),
+  path('forloop', views.forloop, name='forloop'),
 ]
