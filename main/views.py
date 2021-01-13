@@ -28,3 +28,8 @@ def iftag(request):
       # 0~100の乱数を生成
       'random': random.randint(0, 100)
     })
+
+def yesno(request):
+    return render(request, 'main/yesno.html', {
+      'flag': True
+    })
