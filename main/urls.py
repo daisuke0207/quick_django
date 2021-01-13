@@ -9,4 +9,5 @@ urlpatterns = [
   path('list', views.list, name='list'),
   path('iftag', views.iftag, name='iftag'),
   path('yesno', views.yesno, name='yesno'),
+  path('firstof', views.firstof, name='firstof'),
 ]

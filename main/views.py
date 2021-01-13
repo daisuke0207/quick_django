@@ -33,3 +33,10 @@ def yesno(request):
     return render(request, 'main/yesno.html', {
       'flag': True
     })
+
+def firstof(request):
+    return render(request, 'main/firstof.html', {
+      # 'a': 'おはようございます！',
+      'b': 'こんにちは！',
+      # 'c': 'こんばんは！'
+    })
