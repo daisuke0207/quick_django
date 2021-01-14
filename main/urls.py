@@ -14,5 +14,6 @@ urlpatterns = [
   path('forempty', views.forempty, name='forempty'),
   path('master', views.master, name='master'),
   path('include', views.include, name='include'),
+  path('route_param', views.route_param, name='route_param'),
   path('route_param/<int:id>', views.route_param, name='route_param'),
 ]
