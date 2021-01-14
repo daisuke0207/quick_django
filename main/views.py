@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import Book
 import random
 import datetime
+from .forms import BookForm
+from django.views.decorators.http import require_GET
 
 # リクエスト情報を受け取る
 def index(request):
@@ -67,3 +69,10 @@ def include(request):
 
 def route_param(request, id=1):
     return HttpResponse(f'id値 : {id}')
+
+def form_input(request):
+    # フォームオブジェクトを生成
+    form = BookForm()
+    return render(request, 'main/form_input.html', {
+      'form': form
+    })
