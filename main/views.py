@@ -64,3 +64,6 @@ def include(request):
       'name': '鈴木',
       'current': datetime.datetime.now(),
     })
+
+def route_param(request, id=1):
+    return HttpResponse(f'id値 : {id}')
