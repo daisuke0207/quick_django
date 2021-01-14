@@ -1,0 +1,16 @@
+- model: main.book
+  pk: 1
+  fields:
+    isbn: 978-37-2918-2
+    title: 独習Python
+    price: 2000
+    publisher: 翔泳社
+    publish_date: 2020-09-22
+- model: main.book
+  pk: 2
+  fields:
+    isbn: 978-37-2918-4
+    title: 独習Python1
+    price: 202
+    publisher: 翔泳社
+    publish_date: 2020-09-12
