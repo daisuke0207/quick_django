@@ -3,9 +3,21 @@ from django import forms
 # フォームを定義
 class BookForm(forms.Form):
     # 個々の項目を定義
-    isbn = forms.CharField(label='ISBNコード', required=True, max_length=20)
-    title = forms.CharField(label='書名', required=True, max_length=100)
-    price = forms.IntegerField(label='価格', required=True, min_value=0)
+    isbn = forms.CharField(label='ISBNコード', required=True, max_length=20,
+        error_messages={
+            'required': 'ISBNコードは必須です。',
+            'max_length': 'ISBNコードは20文字以内で入力してください。'
+        })
+    title = forms.CharField(label='書名', required=True, max_length=100,
+        error_messages={
+            'required': '書名は必須です。',
+            'max_length': '書名は100文字以内で入力してください。'
+        })
+    price = forms.IntegerField(label='価格', required=True, min_value=0,
+        error_messages={
+            'required': '価格は必須です。',
+            'min_value': '価格は正数で入力してください。'
+        })
     publisher = forms.ChoiceField(label='出版社',
         choices = [
             ('翔泳社', '翔泳社'),
@@ -14,4 +26,8 @@ class BookForm(forms.Form):
             ('SBクリエイティブ', 'SBクリエイティブ'),
             ('日経BP', '日経BP'),
         ])
-    published = forms.DateField(label='刊行日', required=True)
+    published = forms.DateField(label='刊行日', required=True,
+        error_messages={
+            'required': '刊行日は必須です。',
+            'invalid': '刊行日はYYYY-MM-DDの形式で入力してください。'
+        })
