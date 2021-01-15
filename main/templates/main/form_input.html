@@ -1,7 +1,7 @@
 {% extends "main/layout.html" %}
 
 {% block main %}
-<form action="./form_process" method="post">
+<form action="./form_process" method="post" novalidate>
     {% csrf_token %}
     <!-- フォームオブジェクトの情報をまとめて出力 -->
     {{ form.as_p }}

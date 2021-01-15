@@ -16,4 +16,6 @@ urlpatterns = [
   path('include', views.include, name='include'),
   path('route_param', views.route_param, name='route_param'),
   path('route_param/<int:id>', views.route_param, name='route_param'),
+  path('form_input', views.form_input, name='form_input'),
+  path('form_process', views.form_process, name='form_process'),
 ]
