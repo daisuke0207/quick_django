@@ -1,6 +1,7 @@
 from django import forms
 from datetime import date
 from .validates import compare_today
+from .models import Book
 
 # フォームを定義
 class BookForm(forms.Form):
@@ -40,3 +41,8 @@ class BookForm(forms.Form):
     #     if date.today() < published:
     #         raise forms.ValidationError('刊行日は今日以前の日付を入力してください。')
     #     return published
+
+class BookModelForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ('isbn' 'title', 'price', 'publisher', 'published')
