@@ -1,4 +1,6 @@
 from django import forms
+from datetime import date
+from .validates import compare_today
 
 # フォームを定義
 class BookForm(forms.Form):
@@ -26,8 +28,15 @@ class BookForm(forms.Form):
             ('SBクリエイティブ', 'SBクリエイティブ'),
             ('日経BP', '日経BP'),
         ])
-    published = forms.DateField(label='刊行日', required=True,
+    published = forms.DateField(label='刊行日', required=True, validators=[compare_today],
         error_messages={
             'required': '刊行日は必須です。',
             'invalid': '刊行日はYYYY-MM-DDの形式で入力してください。'
         })
+    # def clean_published(self):
+    #     # 入力値を取得
+    #     published = self.cleaned_data['published']
+    #     # エラー時には例外を発生
+    #     if date.today() < published:
+    #         raise forms.ValidationError('刊行日は今日以前の日付を入力してください。')
+    #     return published
