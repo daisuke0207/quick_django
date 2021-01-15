@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from .models import Book
 import random
 import datetime
+from .forms import BookForm
+from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_POST
 
 # リクエスト情報を受け取る
 def index(request):
@@ -67,3 +70,27 @@ def include(request):
 
 def route_param(request, id=1):
     return HttpResponse(f'id値 : {id}')
+
+def form_input(request):
+    # フォームオブジェクトを生成
+    form = BookForm()
+    return render(request, 'main/form_input.html', {
+      'form': form
+    })
+
+# HTTP POSTでのみ実行されるビュー関数
+@require_POST
+def form_process(request):
+    # ポストデータを紐付け
+    form = BookForm(require_POST)
+    # 入力値を検証
+    if form.is_valid():
+        # 正しければ結果を表示
+        return render(request, 'main/form_process.html', {
+          'form': form
+        })
+    else:
+        # 誤りがあればフォームを再描画
+        return render(request, 'main/form_input.html', {
+            'form': form
+        })
